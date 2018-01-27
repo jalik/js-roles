@@ -1,7 +1,7 @@
 {
   "name": "jk-roles",
   "version": "1.0.0",
-  "description": "Managing roles and permissions with ease.",
+  "description": "Manage roles and permissions with ease.",
   "license": "MIT",
   "keywords": [
     "permission",
