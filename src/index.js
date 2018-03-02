@@ -104,24 +104,22 @@ export default {
     mergePermissions(...lists) {
         const permissions = [];
 
-        if (lists instanceof Array) {
-            for (let i = 0; i < lists.length; i += 1) {
-                const list = lists[i];
+        for (let i = 0; i < lists.length; i += 1) {
+            const list = lists[i];
 
-                if (!(list instanceof Array)) {
-                    throw new TypeError(`mergePermissions(): all arguments must be instances of Array`);
+            if (!(list instanceof Array)) {
+                throw new TypeError(`mergePermissions(): all arguments must be instances of Array`);
+            }
+
+            for (let j = 0; j < list.length; j += 1) {
+                const permission = list[j];
+
+                if (typeof permission !== "string") {
+                    throw new TypeError(`mergePermissions(): permission must be a String`);
                 }
 
-                for (let j = 0; j < list.length; j += 1) {
-                    const permission = list[j];
-
-                    if (typeof permission !== "string") {
-                        throw new TypeError(`mergePermissions(): permission must be a String`);
-                    }
-
-                    if (permission.length && permissions.indexOf(permission) === -1) {
-                        permissions.push(permission);
-                    }
+                if (permission.length && permissions.indexOf(permission) === -1) {
+                    permissions.push(permission);
                 }
             }
         }
