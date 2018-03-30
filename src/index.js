@@ -23,106 +23,105 @@
  */
 
 export default {
-
-    /**
-     * Checks if a single permission is in the list
-     * @param permission
-     * @param list
-     * @return {boolean}
-     */
-    isPermissionInList(permission, list) {
-        if (typeof permission !== "string") {
-            throw new TypeError(`isPermissionInList(): first argument must be a String`);
-        }
-        if (!(list instanceof Array)) {
-            throw new TypeError(`isPermissionInList(): second argument must be an Array`);
-        }
-        return permission.length > 0 && list.indexOf(permission) !== -1;
-    },
-
-    /**
-     * Checks if all permissions are in the list
-     * @param permissions
-     * @param list
-     * @return {boolean}
-     */
-    isPermissionsInList(permissions, list) {
-        if (!(permissions instanceof Array)) {
-            throw new TypeError(`isPermissionsInList(): first argument must be an Array`);
-        }
-        if (!(list instanceof Array)) {
-            throw new TypeError(`isPermissionsInList(): second argument must be an Array`);
-        }
-
-        let result = false;
-
-        if (permissions.length) {
-            result = true;
-
-            for (let i = 0; i < permissions.length; i += 1) {
-                if (!this.isPermissionInList(permissions[i], list)) {
-                    result = false;
-                    break;
-                }
-            }
-        }
-        return result;
-    },
-
-    /**
-     * Checks if one of the given permissions is in the list
-     * @param permissions
-     * @param list
-     * @return {boolean}
-     */
-    isPermissionsOneOf(permissions, list) {
-        if (!(permissions instanceof Array)) {
-            throw new TypeError(`isPermissionsOneOf(): first argument must be an Array`);
-        }
-        if (!(list instanceof Array)) {
-            throw new TypeError(`isPermissionsOneOf(): second argument must be an Array`);
-        }
-
-        let result = false;
-
-        if (permissions.length) {
-            for (let i = 0; i < permissions.length; i += 1) {
-                if (this.isPermissionInList(permissions[i], list)) {
-                    result = true;
-                    break;
-                }
-            }
-        }
-        return result;
-    },
-
-    /**
-     * Merges one or more permissions
-     * @param lists
-     * @return {Array}
-     */
-    mergePermissions(...lists) {
-        const permissions = [];
-
-        for (let i = 0; i < lists.length; i += 1) {
-            const list = lists[i];
-
-            if (!(list instanceof Array)) {
-                throw new TypeError(`mergePermissions(): all arguments must be instances of Array`);
-            }
-
-            for (let j = 0; j < list.length; j += 1) {
-                const permission = list[j];
-
-                if (typeof permission !== "string") {
-                    throw new TypeError(`mergePermissions(): permission must be a String`);
-                }
-
-                if (permission.length && permissions.indexOf(permission) === -1) {
-                    permissions.push(permission);
-                }
-            }
-        }
-        return permissions;
+  /**
+   * Checks if a single permission is in the list
+   * @param permission
+   * @param list
+   * @return {boolean}
+   */
+  isPermissionInList(permission, list) {
+    if (typeof permission !== 'string') {
+      throw new TypeError('isPermissionInList(): first argument must be a String');
     }
+    if (!(list instanceof Array)) {
+      throw new TypeError('isPermissionInList(): second argument must be an Array');
+    }
+    return permission.length > 0 && list.indexOf(permission) !== -1;
+  },
+
+  /**
+   * Checks if all permissions are in the list
+   * @param permissions
+   * @param list
+   * @return {boolean}
+   */
+  isPermissionsInList(permissions, list) {
+    if (!(permissions instanceof Array)) {
+      throw new TypeError('isPermissionsInList(): first argument must be an Array');
+    }
+    if (!(list instanceof Array)) {
+      throw new TypeError('isPermissionsInList(): second argument must be an Array');
+    }
+
+    let result = false;
+
+    if (permissions.length) {
+      result = true;
+
+      for (let i = 0; i < permissions.length; i += 1) {
+        if (!this.isPermissionInList(permissions[i], list)) {
+          result = false;
+          break;
+        }
+      }
+    }
+    return result;
+  },
+
+  /**
+   * Checks if one of the given permissions is in the list
+   * @param permissions
+   * @param list
+   * @return {boolean}
+   */
+  isPermissionsOneOf(permissions, list) {
+    if (!(permissions instanceof Array)) {
+      throw new TypeError('isPermissionsOneOf(): first argument must be an Array');
+    }
+    if (!(list instanceof Array)) {
+      throw new TypeError('isPermissionsOneOf(): second argument must be an Array');
+    }
+
+    let result = false;
+
+    if (permissions.length) {
+      for (let i = 0; i < permissions.length; i += 1) {
+        if (this.isPermissionInList(permissions[i], list)) {
+          result = true;
+          break;
+        }
+      }
+    }
+    return result;
+  },
+
+  /**
+   * Merges one or more permissions
+   * @param lists
+   * @return {Array}
+   */
+  mergePermissions(...lists) {
+    const permissions = [];
+
+    for (let i = 0; i < lists.length; i += 1) {
+      const list = lists[i];
+
+      if (!(list instanceof Array)) {
+        throw new TypeError('mergePermissions(): all arguments must be instances of Array');
+      }
+
+      for (let j = 0; j < list.length; j += 1) {
+        const permission = list[j];
+
+        if (typeof permission !== 'string') {
+          throw new TypeError('mergePermissions(): permission must be a String');
+        }
+
+        if (permission.length && permissions.indexOf(permission) === -1) {
+          permissions.push(permission);
+        }
+      }
+    }
+    return permissions;
+  },
 };
