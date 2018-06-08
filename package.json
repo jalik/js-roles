@@ -1,5 +1,5 @@
 {
-  "name": "jk-roles",
+  "name": "@jalik/roles",
   "version": "1.0.0",
   "description": "Manage roles and permissions with ease.",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "security"
   ],
   "author": {
-    "name": "Karl STEIN",
+    "name": "Karl Stein",
     "email": "karl.stein.pro@gmail.com",
     "url": "https://github.com/jalik"
   },
