@@ -1,4 +1,4 @@
-# jk-roles
+# @jalik/roles
 
 A low level library meant to easily build secured applications using **Role Based Access Control (RBAC)**.
 
@@ -39,7 +39,7 @@ const adminPermissions = [
 To check a single permission, use the method `isPermissionInList(String, Array)`.
 
 ```js
-import Roles from "jk-roles";
+import Roles from "@jalik/roles";
 
 // Define user permissions
 const userPermissions = [
@@ -57,7 +57,7 @@ if (Roles.isPermissionInList("delete_own_photo", userPermissions)) {
 To check if all permissions are present, use the method `isPermissionsInList(String, Array)`, if one permission is missing the method will return false.
 
 ```js
-import Roles from "jk-roles";
+import Roles from "@jalik/roles";
 
 // Define user permissions
 const userPermissions = [
@@ -76,7 +76,7 @@ if (Roles.isPermissionsInList(["test", "upload_photo"], userPermissions)) {
 To check if at least one permission is present, use the method `isPermissionsOneOf(Array, Array)`.
 
 ```js
-import Roles from "jk-roles";
+import Roles from "@jalik/roles";
 
 // Define user permissions
 const userPermissions = [
@@ -94,7 +94,7 @@ if (Roles.isPermissionsOneOf(["delete_any_photo", "delete_own_photo"], userPermi
 In case that you have several permissions lists, you can merge them with the method `mergePermissions(...Array)`, this method only removes duplicates.
 
 ```js
-import Roles from "jk-roles";
+import Roles from "@jalik/roles";
 
 // Define user permissions
 const userPermissions = [
