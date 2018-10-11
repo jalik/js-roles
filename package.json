@@ -17,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jalik/jk-roles.git"
+    "url": "https://github.com/jalik/js-roles.git"
   },
   "bugs": {
-    "url": "https://github.com/jalik/jk-roles/issues"
+    "url": "https://github.com/jalik/js-roles/issues"
   },
   "main": "dist/index.js",
   "scripts": {
